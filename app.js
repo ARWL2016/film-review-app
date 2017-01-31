@@ -16,14 +16,12 @@ app.get('/', function(req, res) {
 
 app.get('/search', function(req, res) {
     var searchString = req.query.title;
-
-    // year, runtime, genre, director, actors;  
  
     getFilm(searchString, function(errorMessage, results) {
         if (errorMessage) {
             console.log(errorMessage);
         } else {
-            console.log(results.Title, results.Year); 
+            console.log(results); 
 
             res.render(__dirname + '/public/index.hbs', {
                 searchString: searchString,
@@ -31,13 +29,12 @@ app.get('/search', function(req, res) {
                 year: results.Year, 
                 genre: results.Genre, 
                 director: results.Director, 
-                actors: results.Actors
+                actors: results.Actors,
+                poster: results.Poster
             });
         }
-    }); 
-
-     
-});
+    });    
+}); //get
 
 app.listen(3000, function() {
     console.log('Listening on port 3000'); 

@@ -13,13 +13,25 @@
             <input type="search" name="title" placeholder="Enter a film title"> 
             <input type="submit" id="search" value="search"> 
         </form>
-
         <p>You searched for the following movie: {{searchString}}</p>
-        <h3>Title: {{title}}</h3>
-        <h3>Year: {{year}}</h3>
-        <h3>Genre: {{genre}}</h3>
-        <h3>Director: {{director}}</h3>
-        <h3>Actors: {{actors}}</h3>
+
+        <article>
+            <div class="image filmImage">
+                <img src={{poster}} alt="film poster" />
+            </div>
+            <div class="results information">
+                <h2>{{title}} <span>({{year}})</span></h2>
+                <p>{{genre}}</p>
+                <p>Director:  <span>{{director}}</span></p>
+                <p>Stars:  <span>{{actors}}</span></p>
+                
+            </div>
+            <div class="review">
+                <form>
+                    <textarea name="userReview" rows="10"  placeholder="Write your review here"></textarea>
+                </form>
+            </div>
+        </article>
 
     </div>
 </body>

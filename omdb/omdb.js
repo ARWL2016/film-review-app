@@ -1,10 +1,10 @@
 var request = require('request');
 
-var getFilm = function(title, callback) {
+var getFilm = (title, callback) => {
     request({
         url: `http://www.omdbapi.com/?t=${title}&y=&plot=short&r=json`, 
         json: true
-    }, function(error, response, body) {
+    }, (error, response, body) => {
        if (error) {
            callback('Unable to fetch film information.') 
        } else if (body.Response === 'False') {
@@ -12,7 +12,6 @@ var getFilm = function(title, callback) {
        } else {
            callback(undefined, body);
        }
-       
     });
 };
 
