@@ -1,10 +1,9 @@
 var express = require('express'); 
+var handlebars = require('express-handlebars');
 
 var app = express(); 
 
-var handlebars = require('express-handlebars');
 app.engine('.hbs', handlebars({extname: '.hbs'}));
-
 app.set('view engine', '.hbs');
 
 app.use(express.static(__dirname + '/public'));
